@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Body :text="text" />
+    <BodyComputed :text="text" />
 
     <input type="text" v-model="text">
   </div>
@@ -8,10 +8,11 @@
 
 <script>
   import { ref } from 'vue'
-  import Body from './components/Body.vue'
+  import BodyComputed from './components/BodyComputed.vue'
+
   export default {
     components: {
-      Body
+      BodyComputed
     },
 
     setup () {
