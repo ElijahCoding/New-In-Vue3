@@ -1,9 +1,25 @@
 <template>
-    <Portal target="#modal">
-        <div class="modal">
-            <div class="modal__content">
-                <slot />
+    <div>
+        <Portal target="#modal">
+            <div class="modal" v-if="open">
+                <div class="modal__content">
+                    <slot />
+
+                    <a href="#" @click.prevent="$emit('yes')">Yes</a>
+                    <a href="#" @click.prevent="$emit('yes')">No</a>
+                </div>
             </div>
-        </div>
-    </Portal>
+        </Portal>
+    </div>
 </template>
+
+<script>
+    export default {
+        props: {
+            open: {
+                required: true,
+                type: Boolean
+            }
+        }
+    }
+</script>
