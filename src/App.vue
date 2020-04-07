@@ -1,8 +1,12 @@
 <template>
   <div>
-    <Suspense>
+    <div v-if="error">
+      Could not load
+    </div>
+    <Suspense v-else>
       <template #default>
-        <TodoIndex />
+        <TopPosts />
+        <LatestPosts />
       </template>
       <template #fallback>
         <div>Loading...</div>
@@ -12,10 +16,28 @@
 </template>
 
 <script>
-  import TodoIndex from "./components/TodoIndex.vue";
+  import TopPosts from './components/TopPosts.vue'
+  import LatestPosts from './components/LatestPosts.vue'
+
+  import { ref, onErrorCaptured } from 'vue'
+
   export default {
     components: {
-      TodoIndex
+      TopPosts,
+      LatestPosts
+    },
+
+    setup () {
+      const error = ref(false)
+
+      onErrorCaptured(e => {
+        error.value = true
+        return true
+      })
+
+      return {
+        error
+      }
     }
   }
 </script>
