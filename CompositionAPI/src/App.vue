@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Counter />
+    <Form />
   </div>
 </template>
 
 <script>
-  import Counter from './components/Counter.vue'
+  import Form from './components/Form.vue'
   export default {
     components: {
-      Counter
+      Form
     },
   }
 </script>
