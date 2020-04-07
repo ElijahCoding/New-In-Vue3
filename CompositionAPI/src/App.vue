@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Form />
+    <Body text="display me!" />
   </div>
 </template>
 
 <script>
-  import Form from './components/Form.vue'
+  import Body from './components/Body.vue'
   export default {
     components: {
-      Form
+      Body
     },
   }
 </script>
