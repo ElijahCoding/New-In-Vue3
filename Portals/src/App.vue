@@ -1,43 +1,38 @@
 <template>
   <div>
-    <div v-if="error">
-      Could not load
-    </div>
-    <Suspense v-else>
-      <template #default>
-        <TopPosts />
-        <LatestPosts />
-      </template>
-      <template #fallback>
-        <div>Loading...</div>
-      </template>
-    </Suspense>
+    <AppListItem />
   </div>
 </template>
 
 <script>
-  import TopPosts from './components/TopPosts.vue'
-  import LatestPosts from './components/LatestPosts.vue'
-
-  import { ref, onErrorCaptured } from 'vue'
-
+  import AppListItem from './components/AppListItem.vue'
   export default {
     components: {
-      TopPosts,
-      LatestPosts
-    },
-
-    setup () {
-      const error = ref(false)
-
-      onErrorCaptured(e => {
-        error.value = true
-        return true
-      })
-
-      return {
-        error
-      }
+      AppListItem
     }
   }
 </script>
+
+
+<style>
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.2);
+    width: 100%;
+    height: 100vh;
+  }
+
+  .modal__content {
+    box-sizing: border-box;
+    background: white;
+    position: fixed;
+    padding: 30px;
+    width: 30%;
+    border: 1px solid #000;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+  }
+</style>
