@@ -1,26 +1,15 @@
 <template>
   <div>
-    <BodyComputed :text="text" />
-
-    <input type="text" v-model="text">
+    <Watch />
   </div>
 </template>
 
 <script>
-  import { ref } from 'vue'
-  import BodyComputed from './components/BodyComputed.vue'
+  import Watch from './components/Watch.vue'
 
   export default {
     components: {
-      BodyComputed
+      Watch
     },
-
-    setup () {
-      const text = ref('')
-
-      return {
-        text
-      }
-    }
   }
 </script>
