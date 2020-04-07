@@ -1,31 +1,16 @@
 <template>
   <div>
-    <Lifecycle v-if="show" />
-
-    <a href="#" @click.prevent="destroy">Click</a>
+    <Reuse />
   </div>
 </template>
 
 <script>
   import { ref } from 'vue'
-  import Lifecycle from './components/Lifecycle.vue'
+  import Reuse from './components/Reuse.vue'
 
   export default {
     components: {
-      Lifecycle
+      Reuse
     },
-
-    setup () {
-      const show = ref(true)
-
-      function destroy() {
-        show.value = false
-      }
-
-      return {
-        show,
-        destroy
-      }
-    }
   }
 </script>
